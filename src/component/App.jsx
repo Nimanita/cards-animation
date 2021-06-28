@@ -24,15 +24,36 @@ function App() {
 });
   function mouseinside(x){
    
+    console.log("xin",x);
     if(x === "card1")
     {
         changeclass({
            ...classes,
            hover : "box2",
           mainbox : "cold-lg-6 cold-sm-12 cold-md-12 col2n",
-           hoverimg : "imgh",
-          visi : "row visi"
+           hoverimg : "imgh"
+          
         });
+    }
+    else if(x === "card3")
+    {
+      changeclass({
+        ...classes,
+        hover : "box2",
+       mainbox : "cold-lg-6 cold-sm-12 cold-md-12 col2n",
+        hoverimg : "imgh",
+       visi : "row visi"
+     });
+    }
+    else if(x === "card4")
+    {
+      changeclass2({
+        ...classes2,
+        hover : "box2",
+       mainbox : "cold-lg-6 cold-sm-12 cold-md-12 col2n",
+        hoverimg : "imgh",
+       visi : "row visi"
+     });
     }
     else
     {
@@ -47,6 +68,7 @@ function App() {
 
   }
   function mouseoutside(x){
+    console.log("xout",x);
     if(x === "card1")
     {
         changeclass({
@@ -56,6 +78,26 @@ function App() {
            hoverimg : "img",
           visi : "row invisi"
         });
+    }
+    else if(x === "card3")
+    {
+      changeclass({
+        ...classes,
+        hover : "box2",
+        mainbox : "cold-lg-6 cold-sm-12 cold-md-12 col2n",
+         hoverimg : "imgh",
+         visi : "row invisi"
+     });
+    }
+    else if(x === "card4")
+    {
+      changeclass2({
+        ...classes2,
+        hover : "box2",
+        mainbox : "cold-lg-6 cold-sm-12 cold-md-12 col2n",
+         hoverimg : "imgh",
+        visi : "row invisi"
+     });
     }
     else
     {
@@ -73,7 +115,8 @@ function App() {
       <div class="row  approw">
         <div class={classes.mainbox} onMouseEnter={() =>mouseinside("card1") }
         onMouseLeave={() =>mouseoutside("card1") }>
-        <img class={classes.hover} src={Img2}/>
+        <img class={classes.hover} src={Img2} onMouseEnter={() =>mouseinside("card3") }
+        onMouseLeave={() =>mouseoutside("card3") }/>
         <div class={classes.visi}>
         <img src={Face} class="icon" />
         <img src={Insta} class="icon"/>
@@ -92,7 +135,8 @@ function App() {
         </div>
         <div class={classes2.mainbox} onMouseEnter={() =>mouseinside("card2") }
         onMouseLeave={() =>mouseoutside("card2") }>
-        <img class={classes2.hover} src={Img1}/>
+        <img class={classes2.hover} src={Img1}  onMouseEnter={() =>mouseinside("card4") }
+        onMouseLeave={() =>mouseoutside("card4") }/>
         <div class={classes2.visi}>
         <img src={Face} class="icon" />
         <img src={Insta} class="icon"/>
